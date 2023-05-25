@@ -99,6 +99,7 @@ const SignInScreen = () => {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
+      backgroundColor: '#000'
     },
     inputContainer: {
       width: '80%',

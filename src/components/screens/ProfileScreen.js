@@ -11,21 +11,6 @@ import * as ImagePicker from 'expo-image-picker';
 import { TouchableOpacity } from "react-native";
 
 const ProfileScreen = () => {
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      width: "100%",
-    },
-    verifiedEmail: {
-      color: "green",
-    },
-    notVerifiedEmail: {
-      color: "red",
-    },
-  });
-
   const navigation = useNavigation();
   const auth = getAuth();
   const user = auth.currentUser;
@@ -88,9 +73,9 @@ const ProfileScreen = () => {
         )}
       </TouchableOpacity>
 
-      <Text>Profile Screen</Text>
-      <Text>{user.displayName}</Text>
-      <Text>{user.email}</Text>
+      <Text style={styles.titleText}>Profile Screen</Text>
+      <Text style={styles.titleText}>{user.displayName}</Text>
+      <Text style={styles.titleText}>{user.email}</Text>
       {user.emailVerified ? (
         <Text style={styles.verifiedEmail}>Verificado</Text>
       ) : (
@@ -103,5 +88,24 @@ const ProfileScreen = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    backgroundColor: '#000'
+  },
+  titleText: {
+    color: '#FFF'
+  },
+  verifiedEmail: {
+    color: "green",
+  },
+  notVerifiedEmail: {
+    color: "red",
+  },
+});
 
 export { ProfileScreen };
